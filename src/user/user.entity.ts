@@ -1,10 +1,8 @@
-import { Cart } from 'src/cart/models/cart.entity';
+import { Cart } from 'src/cart/cart.entity';
 import {
   Column,
   Entity,
-  JoinColumn,
   OneToMany,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -22,6 +20,6 @@ export class User {
   @Column({ nullable: true })
   hashedRt?: string;
 
-  @OneToMany((type) => Cart, (cart) => cart.user)
+  @OneToMany(() => Cart, (cart) => cart.user)
   carts: Cart[];
 }
